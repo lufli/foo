@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Test</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+      body {background-color: orange;}
+      div {margin: 20px;}
+    </style>
+  </head>
+  <body>
+    <div class="container" >
+      <div class="row">
+        <div class="col-10 col-md-auto" style="background-color: powderblue">
+          <div class="">
+            <h1>Simple JavaScript Quiz</h1>
+            <p>Test your knowledge in JavaScript fundamentals</p>
+            <hr>
+          </div>
+          <div class="question">
+          <label>1. In which HTML element do we put in JavaScript code?</label><br>
+          <input type="radio" name="question1" value="0"> &lt;js&gt;<br>
+          <input type="radio" name="question1" value="1"> &lt;script&gt;<br>
+          <input type="radio" name="question1" value="2"> &lt;body&gt;<br>
+          <input type="radio" name="question1" value="3"> &lt;link&gt;<br>
+          </div>
+
+          <div class="question">
+          <label>2. Which HTML attribute is used to reference an external JavaScript file?</label><br>
+          <input type="radio" name="question2" value="0">src<br>
+          <input type="radio" name="question2" value="1">rel<br>
+          <input type="radio" name="question2" value="2">type<br>
+          <input type="radio" name="question2" value="3">href<br>
+          </div>
+
+          <div class="question">
+          <label>3. How would you write "Hello" in an alert box?</label><br>
+          <input type="radio" name="question3" value="0"> msg(&quot;Hello&quot;);<br>
+          <input type="radio" name="question3" value="1"> alertBox(&quot;Hello&quot;);<br>
+          <input type="radio" name="question3" value="2"> document.write(&quot;Hello&quot;);<br>
+          <input type="radio" name="question3" value="3"> alert(&quot;Hello&quot;);<br>
+          </div>
+
+          <div class="question">
+          <label>4. JavaScript is directly to the "java" programming language.</label><br>
+          <input type="radio" name="question4" value="0"> Ture<br>
+          <input type="radio" name="question4" value="1"> False<br>
+          </div>
+
+          <div class="question">
+          <label>5. A variable in JavaScript must start with which special character?</label><br>
+          <input type="radio" name="question5" value="0"> @<br>
+          <input type="radio" name="question5" value="1"> $<br>
+          <input type="radio" name="question5" value="2"> #<br>
+          <input type="radio" name="question5" value="3"> No Special Character<br>
+          <button  class="btn btn-warning" style="margin: 20px" onclick='myFunction()'>Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    
+    function myFunction() {
+      var radios1 = document.getElementsByName('question1');
+      var radios2 = document.getElementsByName('question2');
+      var radios3 = document.getElementsByName('question3');
+      var radios4 = document.getElementsByName('question4');
+      var radios5 = document.getElementsByName('question5');
+      if(!myFinish(radios1)) { alert('You missed question1'); return;}
+      if(!myFinish(radios2)) { alert('You missed question2'); return;}
+      if(!myFinish(radios3)) { alert('You missed question3'); return;}
+      if(!myFinish(radios4)) { alert('You missed question4'); return;}
+      if(!myFinish(radios5)) { alert('You missed question5'); return;}
+      var sum = 0;
+      sum += radios1[1].checked;
+      sum += radios2[3].checked;
+      sum += radios3[3].checked;
+      sum += radios4[1].checked;
+      sum += radios5[3].checked;
+      alert('You scored '+sum+' of 5');
+    }
+
+    function myFinish(radios) {
+      for(var i=0;i<radios.length;i++) {
+        if(radios[i].checked) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+  </script>
+</html>
