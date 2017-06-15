@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Untitled Document</title>
+    
+</head>
+<body>
+    <script type="text/javascript">   
+        /*
+         * param1 Array 
+         * param2 Array
+         * return true or false
+            function:
+         1. the type of the array shoule be the same. consequence can be different will return ture for [1, true] and [false, 2]
+         2.the length of the arrays should be the same
+         3. the type should contain String, Boolean, Number, undefined, null, function，date, window.
+         4. all passed should return pass sle return false;
+         (hint: Object.prototype.toString.apply());
+         */
+
+        function arraysSimilar(arr1, arr2){
+
+            if(Object.prototype.toString.apply(arr1) != Object.prototype.toString.apply([]) || Object.prototype.toString.apply(arr2) != Object.prototype.toString.apply([])) return false;
+            
+
+            var myArr1 = toNewArray(arr1).sort();
+            var myArr2 = toNewArray(arr2).sort();
+
+            for(var i=0;i<myArr1.length;i++) {
+                if(myArr1[i]!=myArr2[i]) return false;
+            }
+            return true;
+
+
+        }
+
+        function toNewArray(arr) {
+
+            var newArray = new Array();
+            for(var i=0;i<arr.length;i++) {
+                newArray.push(Object.prototype.toString.apply(arr[i]));
+            }
+            return newArray;
+        }
+
+        
+        
+    </script>
+    <script src="testData.js"></script>
+</body>
+</html>
