@@ -1,6 +1,6 @@
 function findResultNum(target) {
   var record = {};
-  for(var currentNum=1;currentNum<=target;currentNum++) {
+  for(var currentNum=1;currentNum<target;currentNum++) {
     // 遍历数组中每一个数字
     var updates = [];
     for(var item in record) {
@@ -8,16 +8,13 @@ function findResultNum(target) {
       // 比如说原来的hashmap{1:1, 2:1, 3:1}, 新的数字是3
       // 升级后我们又可以有了新的和 4,5,6, 所以新的hashmap{1:1, 2:1, 3:1,4:1,5:1,6:1}
       var sumNum = Number(item) + currentNum;
-      if(sumNum in record) {
+      // // newNum<=target 为了节约空间，大于target的结果对我们没有意义
+      if(sumNum<=target) {
+        // 记录下来
         updates[sumNum] = record[item];
       }
-      // newNum<=target 为了节约空间，大于target的结果对我们没有意义
-      else if(sumNum<=target){
-        updates[sumNum] = 1;
-      }
-      //console.log(newNum);
     }
-
+    // 根据记录升级hashmap
     for(var update in updates) {
       record[update] = record[update] + updates[update] || updates[update];
     }
