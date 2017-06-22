@@ -5,8 +5,8 @@ function findResultNum(target) {
     var newNum = [];
     for(var item in record) {
       // 新的数字来了，用新的数字先升级下我们的hashmap
-      // 比如说原来的hashmap{1:1, 2:1, 3:2}, 新的数字是3
-      // 升级后我们又可以有了新的和 4,5,6, 所以新的hashmap{1:1, 2:1, 3:2,4:1,5:1,6:1}
+      // 比如说原来的hashmap{1:1, 2:1, 3:1}, 新的数字是3
+      // 升级后我们又可以有了新的和 4,5,6, 所以新的hashmap{1:1, 2:1, 3:1,4:1,5:1,6:1}
       var sumNum = Number(item) + currentNum;
       if(sumNum in record) {
         record[sumNum] += 1;
@@ -21,7 +21,7 @@ function findResultNum(target) {
       record[newNum[i]] = 1;
     }
     // 再看看这个新的数字hashmap里有没有
-    // 有 3，那么新的hashmap就是{1:1, 2:1, 3:3,4:1,5:1,6:1}
+    // 有 3，那么新的hashmap就是{1:1, 2:1, 3:2,4:1,5:1,6:1}
     if(currentNum in record){
       record[currentNum] += 1;
     }
@@ -30,8 +30,6 @@ function findResultNum(target) {
     }
     console.log(record);
   }
-  //console.log(record);
-  //for(var item in record) console.log("record",item);
   return record[target];
 }
 
